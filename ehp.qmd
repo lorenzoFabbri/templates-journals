@@ -1,0 +1,202 @@
+---
+title: "Title including study design"
+subtitle: "Subtitle"
+date: today
+
+format:
+  pdf:
+    pdf-engine: lualatex
+    documentclass: article
+    classoption: a4paper
+    pagestyle: plain
+    papersize: A4
+    geometry:
+      - top=30mm
+      - left=20mm
+      - heightrounded
+    include-in-header:
+      text: |
+        \usepackage{lineno}
+        \usepackage{float}
+    include-before-body:
+      text: |
+        \linenumbers
+
+crossref:
+  custom:
+    - kind: float
+      key: supptbl
+      latex-env: supptbl
+      reference-prefix: Table S
+      space-before-numbering: false
+    - kind: float
+      key: suppfig
+      latex-env: suppfig
+      reference-prefix: Figure S
+      space-before-numbering: false
+
+bibliography: ../../docs/bibliography.bib
+csl: environmental-health-perspectives.csl
+
+link-citations: true
+linkcolor: blue
+
+filters:
+  - acronyms
+
+acronyms:
+  fromfile: ../../docs/acronyms.yaml
+  insert_links: false
+  insert_loa: false
+  sorting: alphabetical
+
+editor_options:
+  chunk_output_type: console
+execute:
+  echo: false
+  warning: false
+  error: false
+  message: false
+---
+
+```{r}
+here::i_am("output/paper/manuscript.qmd")
+```
+
+- Place all in-text citations immediately after the information cited, using superscript numbers. Place citation numbers outside periods and commas but inside colons and semicolons.
+
+# Abstract
+
+**Background**
+
+**Objectives**
+
+**Methods**
+
+**Results**
+
+**Discussion**
+
+{{< pagebreak >}}
+
+# Introduction {#sec-intro}
+
+## Background
+
+Explain the scientific background and rationale for the investigation being reported.
+
+## Objectives
+
+State specific objectives, including any prespecified hypotheses.
+
+# Methods {#sec-methods}
+
+## Study design
+
+## Setting
+
+Describe the setting, locations, and relevant dates, including periods of recruitment, exposure, follow-up, and data collection.
+
+## Participants
+
+Give the eligibility criteria, and the sources and methods of selection of
+participants. Describe methods of follow-up.
+
+## Variables
+
+Clearly define all outcomes, exposures, predictors, potential confounders, and effect modifiers. Give diagnostic criteria, if applicable.
+
+## Data sources
+
+For each variable of interest, give sources of data and details of methods of assessment (measurement).
+
+## Bias
+
+Describe any efforts to address potential sources of bias.
+
+## Study size
+
+Explain how the study size was arrived at.
+
+## Quantitative variables
+
+Explain how quantitative variables were handled in the analyses.
+
+## Statistical methods
+
+Describe all statistical methods, including those used to control for confounding. Describe any methods used to examine subgroups and interactions. Explain how missing data were addressed. If applicable, explain how loss to follow-up was addressed. Describe any sensitivity analyses.
+
+# Results {#sec-res}
+
+## Participants
+
+Report numbers of individuals at each stage of study--eg numbers potentially eligible, examined for eligibility, confirmed eligible, included in the study, completing follow-up, and analysed. Give reasons for non-participation at each stage. Consider use of a flow diagram.
+
+## Descriptive data
+
+Give characteristics of study participants (eg demographic, clinical, social) and
+information on exposures and potential confounders. Indicate number of participants with missing data for each variable of interest. Summarise follow-up time (eg, average and total amount).
+
+## Outcome data
+
+Report numbers of outcome events or summary measures over time.
+
+## Main results
+
+Give unadjusted estimates and, if applicable, confounder-adjusted estimates and
+their precision (eg, 95% confidence interval). Make clear which confounders were adjusted for and why they were included. Report category boundaries when continuous variables were categorized. If relevant, consider translating estimates of relative risk into absolute risk for a meaningful time period.
+
+## Other analyses
+
+Report other analyses done--eg analyses of subgroups and interactions, and sensitivity analyses.
+
+# Discussion {#sec-discussion}
+
+## Key results
+
+Summarise key results with reference to study objectives.
+
+## Limitations
+
+Discuss limitations of the study, taking into account sources of potential bias or
+imprecision. Discuss both direction and magnitude of any potential bias.
+
+## Interpretation
+
+Give a cautious overall interpretation of results considering objectives, limitations, multiplicity of analyses, results from similar studies, and other relevant evidence.
+
+## Generalisability
+
+Discuss the generalisability (external validity) of the study result.
+
+# Funding
+
+Give the source of funding and the role of the funders for the present study and, if applicable, for the original study on which the present article is based.
+
+# Acknowledgments
+
+{{< pagebreak >}}
+
+# References {.unnumbered}
+
+{{< pagebreak >}}
+
+# Tables {#sec-tabs}
+
+- One table per page.
+
+# Figures {#sec-figs}
+
+- Maximum width of 7.5 inches.
+
+{{< pagebreak >}}
+
+# Supplemental material {#sec-sm}
+
+## Supplemental tables
+
+- One table per page.
+
+## Supplemental figures
+
+- Maximum width of 7.5 inches.
