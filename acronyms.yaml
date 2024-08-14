@@ -1,0 +1,6 @@
+---
+acronyms:
+  keys:
+    - shortname: qmd
+      longname: Quarto document
+---

@@ -1,94 +1,24 @@
 ---
-title: "Interesting title including study design"
-subtitle: "Subtitle"
-date: today
-
-format:
-  pdf:
-    pdf-engine: lualatex
-    documentclass: article
-    classoption: a4paper
-    pagestyle: plain
-    papersize: A4
-    geometry:
-      - top=30mm
-      - left=20mm
-      - heightrounded
-    number-sections: true
-    include-in-header:
-      text: |
-        \usepackage{lineno}
-        \usepackage{float}
-    include-before-body:
-      text: |
-        \linenumbers
-
-crossref:
-  custom:
-    - kind: float
-      key: supptbl
-      latex-env: supptbl
-      reference-prefix: Table S
-      space-before-numbering: false
-    - kind: float
-      key: suppfig
-      latex-env: suppfig
-      reference-prefix: Figure S
-      space-before-numbering: false
-
-bibliography: ../../docs/bibliography.bib
-csl: environmental-health-perspectives.csl
-
-link-citations: true
-linkcolor: blue
-
-filters:
-  - acronyms
-
-acronyms:
-  fromfile: ../../docs/acronyms.yaml
-  insert_links: false
-  insert_loa: false
-  sorting: alphabetical
-
+title: "Interesting Title Including Study Design"
+abstract: |
+  **Background** The first sentence orients the reader by introducing the broader field in which the particular research is situated.
+  
+  **Objectives** What is missing in the literature (ie, the specific gap) and why that matters.
+  
+  **Methods** Describe the novel method or approach that you used to fill the gap or question.
+  
+  **Results** Executive summary of the results.
+  
+  **Discussion** Interpret the results to answer the question that was posed at the end of the context section.
 editor_options:
-  chunk_output_type: console
-execute:
-  echo: false
-  warning: false
-  error: false
-  message: false
+  chunk_output_type: inline
 ---
 
 ```{r}
-here::i_am("output/paper/manuscript.qmd")
+here::i_am("ehp.qmd")
 ```
 
 - Place all in-text citations immediately after the information cited, using superscript numbers. Place citation numbers outside periods and commas but inside colons and semicolons.
-
-# Abstract
-
-**Background**
-
-The first sentence orients the reader by introducing the broader field in which the particular research is situated.
-
-**Objectives**
-
-What is missing in the literature (ie, the specific gap) and why that matters.
-
-**Methods**
-
-Describe the novel method or approach that you used to fill the gap or question.
-
-**Results**
-
-Executive summary of the results.
-
-**Discussion**
-
-Interpret the results to answer the question that was posed at the end of the context section.
-
-{{< pagebreak >}}
 
 # Introduction {#sec-intro}
 

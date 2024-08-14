@@ -1,0 +1,34 @@
+title: Formato
+author: Lorenzo Fabbri
+version: 0.0.1
+quarto-required: ">=1.4.11"
+contributes:
+  formats:
+    common:
+      date-format: full
+    pdf:
+      template-partials:
+        - "partials/title.tex"
+        - "partials/before-body.tex"
+      include-in-header:
+        - "include-in-header.tex"
+      geometry:
+        - top=10pc
+        - bottom=10pc
+        - left=11pc
+        - right=11pc
+        - heightrounded
+      colorlinks: true
+      linkcolor: DarkSlateBlue
+      urlcolor: DarkSlateBlue
+      citecolor: DarkSlateBlue
+      link-citations: true
+      cite-method: citeproc
+      biblio-title: "References"
+      biblio-config: false
+      biblatex-chicago: false
+      biblio-style: apa
+      biblatexoptions:
+        - backend=biber
+      block-headings: false
+      indent: true

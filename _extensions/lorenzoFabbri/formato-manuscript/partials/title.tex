@@ -1,0 +1,119 @@
+% Preamble
+
+
+\usepackage{etoolbox}
+$if(left-aligned)$
+  \usepackage[document]{ragged2e}
+  \setlength{\RaggedRightParindent}{\parindent}
+  \setlength{\RaggedRightRightskip}{0pt plus 3em}
+  \AtBeginEnvironment{figure}{\setlength{\RaggedRightParindent}{0pt}}
+  \AtBeginEnvironment{table}{\setlength{\RaggedRightParindent}{0pt}}
+  \AtBeginEnvironment{longtable}{\setlength{\RaggedRightParindent}{0pt}}
+  \AtBeginEnvironment{apptbl}{\setlength{\RaggedRightParindent}{0pt}}
+  \AtBeginEnvironment{tcolorbox}{\setlength{\RaggedRightParindent}{0pt}}
+$endif$
+
+$if(endnotes)$
+  \usepackage{endnotes}
+  \renewcommand{\enotesize}{\normalsize}
+  \let\footnote=\endnote
+$endif$
+
+
+% Running headers
+\usepackage{fancyhdr}
+\setlength{\headheight}{0.25in}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+% Short title
+\fancypagestyle{normal}{
+  \fancyhf{}
+  \lhead{\uppercase{$if(short-title)$ $short-title$ $else$ $title$ $endif$}}
+  \rhead{\thepage}
+}
+% Running head: short title
+\fancypagestyle{title}{
+  \fancyhf{}
+  \lhead{Running head: \uppercase{$if(short-title)$ $short-title$ $else$ $title$ $endif$}}
+  \rhead{}
+}
+
+
+\pagestyle{normal}
+
+
+% Epigraphs
+$if(epigraph)$
+  \usepackage{epigraph}
+  \renewcommand{\epigraphsize}{\footnotesize}
+  \setlength{\epigraphrule}{0em}
+  \setlength{\beforeepigraphskip}{0em}
+  \setlength{\afterepigraphskip}{1em}
+$endif$
+
+
+% BibLaTeX
+$if(biblatex)$
+  $if(biblatex-chicago)$
+    \usepackage[$if(biblio-style)$$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex-chicago}
+  $else$
+    \usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+  $endif$
+
+  \setlength\bibitemsep{0pt}
+  \setlength\bibhang{\parindent}
+
+  \renewbibmacro{in:}{
+    \ifentrytype{article}{}{
+      \printtext{\bibstring{}\intitlepunct}
+    }
+  }
+  \addbibresource{$bibliography$}
+
+  \pretocmd{\printbibliography}{\clearpage}{}{}
+$endif$
+
+
+% Title block
+\usepackage{authblk}
+\renewcommand*{\Authsep}{, }
+\renewcommand*{\Authand}{ and }
+\renewcommand*{\Authands}{, and }
+\renewcommand*{\Affilfont}{\normalsize}
+\renewcommand*{\Authfont}{\normalsize}
+
+$if(title)$
+  \title{$title$$if(subtitle)$:$endif$}
+$endif$
+
+$if(subtitle)$
+  \makeatletter
+  \providecommand{\subtitle}[1]{
+    \apptocmd{\@title}{\par #1 \par}{}{}
+  }
+  \makeatother
+  \subtitle{$subtitle$}
+$endif$
+
+$for(by-author)$
+  \author[$for(it.affiliations)$$it.number$$sep$,$endfor$]{$by-author.name.literal$}
+$endfor$
+
+$for(by-affiliation)$
+  \affil[$it.number$]{$it.name$}
+$endfor$
+
+
+\date{}
+
+
+% Typeset URLs
+\usepackage{url}
+\urlstyle{same}
+
+
+% Math environments
+\let\oldDisplayMath=\[
+\let\endoldDisplayMath=\]
+\renewcommand{\[}{\begin{singlespace}\oldDisplayMath}
+\renewcommand{\]}{\endoldDisplayMath\end{singlespace}\vspace{\baselineskip}}

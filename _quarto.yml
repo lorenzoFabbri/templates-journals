@@ -1,1 +1,74 @@
-
+title: "Some Title"
+subtitle: "Some Subtitle"
+short-title: "Some Short Title"
+date: August 14, 2024
+published: "Under review at *Some Journal*"
+code-repo: "Access the code and analysis at <some url>"
+correspondence-prefix: "Correspondence concerning this article should be addressed to"
+author:
+  - name: Lorenzo Fabbri
+    email: lorenzo.fabbri@something.com
+    orcid: some-orcid
+    title: Some Title
+    affiliations:
+      - id: some-id
+        name: Some Name
+        department: Some Department
+        address: Some Street
+        city: Some City
+        region: Some Region
+        country: Some Country
+        postal-code: Some Code
+    attributes:
+      corresponding: true
+additional-info: "We have no known conflict of interest to disclose."
+abstract: "Some abstract."
+keywords:
+  - something
+thanks: "Something."
+# bibliography: bibliography.bib
+# csl: blank.csl
+format:
+  formato-manuscript-docx: default
+  formato-manuscript-pdf:
+    left-aligned: true
+    endnotes: true
+    mainfont: "Linux Libertine O"
+    mainfontoptions:
+      - "Numbers=Proportional"
+      - "Numbers=OldStyle"
+    mathfont: "Libertinus Math"
+    biblatex-chicago: true
+    biblio-style: authordate
+    biblatexoptions:
+      - backend=biber
+      - autolang=hyphen
+      - isbn=false
+      - uniquename=false
+    number-sections: true
+crossref:
+  custom:
+    - kind: float
+      key: supptbl
+      latex-env: supptbl
+      reference-prefix: Table S
+      space-before-numbering: false
+    - kind: float
+      key: suppfig
+      latex-env: suppfig
+      reference-prefix: Figure S
+      space-before-numbering: false
+filters:
+  - acronyms
+acronyms:
+  fromfile: acronyms.yaml
+  insert_links: false
+  insert_loa: false
+  sorting: alphabetical
+editor_options:
+  chunk_output_type: console
+execute:
+  echo: false
+  warning: false
+  error: false
+  message: false

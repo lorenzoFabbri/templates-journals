@@ -1,0 +1,55 @@
+% End-of-preamble
+
+% BibLaTeX
+$if(biblatex)$
+  $if(biblatex-chicago)$
+    \usepackage[$if(biblio-style)$$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex-chicago}
+  $else$
+    \usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+  $endif$
+  
+  % Remove space between entries bib and match indentation document
+  \setlength\bibitemsep{0pt}
+  \setlength\bibhang{\parindent}
+  
+  \renewbibmacro{in:}{
+    \ifentrytype{article}{}{
+      \printtext{\bibstring{}\intitlepunct}
+    }
+  }
+  
+  \addbibresource{$bibliography$}
+$endif$
+% End BibLaTeX
+
+% Title block
+\usepackage{orcidlink}
+
+$if(title)$
+  \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+$endif$
+
+$if(subtitle)$
+  \usepackage{etoolbox}
+  \makeatletter
+  \providecommand{\subtitle}[1]{
+    \apptocmd{\@title}{\par {\vskip 0.25em \large #1 \par}}{}{}
+  }
+  \makeatother
+  \subtitle{$subtitle$}
+$endif$
+
+\author{
+  $for(by-author)$
+    {\large $it.name.literal$$if(it.orcid)$~\orcidlink{$it.orcid$}$endif$}
+    $if(it.attributes.corresponding)$\thanks{Corresponding author.}$endif$ \\
+    $for(it.affiliations)$$it.name$ \\$endfor$
+    {\footnotesize \url{$it.email$}} \and
+  $endfor$
+}
+
+\date{}
+
+\usepackage{url}
+\urlstyle{same}
+% End title block
